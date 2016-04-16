@@ -3,7 +3,7 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 9,
-      center: {lat: 50.471496, lng: -4.718863}
+      center: {lat: 50.486030, lng: -4.678051}
     });
 
     var markerBos = new google.maps.Marker({
@@ -103,13 +103,49 @@ function initMap() {
     new google.maps.event.addListener(markerEspress, 'click', function(e) {toggleBounce(markerEspress)});
     new google.maps.event.addListener(markerAdolfo, 'click', function(e) {toggleBounce(markerAdolfo)});
 
+
   function toggleBounce(marker) {
-      if (marker.getAnimation() != null) {
-        marker.setAnimation(null);
-      } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-      }
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function() { 
+        marker.setAnimation(null); 
+      }, 1500);
   }
+
+var sugar = $('#sugar');
+var vibes = $('#vibes');
+var brew = $('#brew');
+var hub = $('#hub');
+var bos = $('#boscastle');
+var lib = $('#lib');
+var relish = $('#relish');
+var zion = $('#zion');
+var woods = $('#woods');
+var caf108 = $('#coffee108');
+var espress = $('#espress');
+var adolfo = $('#adolfo');
+
+  var bounceCurrent = function(marker, wrapper) {
+    wrapper.click(function() {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function() { 
+        marker.setAnimation(null); 
+      }, 1500);
+    })
+  }
+
+bounceCurrent(markerSugar,sugar);
+bounceCurrent(markerVibes,vibes);
+bounceCurrent(markerBrew,brew);
+bounceCurrent(markerHub,hub);
+bounceCurrent(markerBos,bos);
+bounceCurrent(markerLib,lib);
+bounceCurrent(markerRel,relish);
+bounceCurrent(markerZion,zion);
+bounceCurrent(markerWoods,woods);
+bounceCurrent(marker108,caf108);
+bounceCurrent(markerEspress,espress);
+bounceCurrent(markerAdolfo,adolfo);
+
 }
 
 
@@ -118,7 +154,7 @@ var reviewToggle = function() {
     $('.review-wrapper').removeClass('current');
     $('.review-container').hide();
       $(this).addClass('current');
-      $(this).children('.review-container').show();  
+      $(this).children('.review-container').show(); 
   })
 
   var firstReviewWrap = $('div.review-wrapper:first-of-type');
@@ -141,7 +177,6 @@ var reviewToggle = function() {
         firstReviewWrap.children('.review-container').hide();
       }
   });
-
 
   $(document).bind('keydown',function(evt) {
        if(event.which === 40) {
