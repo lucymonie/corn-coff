@@ -26,7 +26,7 @@ function initMap() {
       title: 'Liberty Coffee',
       animation: google.maps.Animation.DROP
     });
-    
+
     var markerZion = new google.maps.Marker({
       position: {lat: 50.215248, lng: -5.478531},
       map: map,
@@ -61,7 +61,7 @@ function initMap() {
       title: 'Strong Adolofo\'s',
       animation: google.maps.Animation.DROP
     });
- 
+
     var markerWoods = new google.maps.Marker({
       position: {lat: 50.469561, lng: -4.679693},
       map: map,
@@ -106,8 +106,8 @@ function initMap() {
 
   function toggleBounce(marker) {
     marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function() { 
-        marker.setAnimation(null); 
+      setTimeout(function() {
+        marker.setAnimation(null);
       }, 1500);
   }
 
@@ -127,8 +127,8 @@ var adolfo = $('#adolfo');
   var bounceCurrent = function(marker, wrapper) {
     wrapper.click(function() {
       marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function() { 
-        marker.setAnimation(null); 
+      setTimeout(function() {
+        marker.setAnimation(null);
       }, 1500);
     })
   }
@@ -154,11 +154,11 @@ var reviewToggle = function() {
     $('.review-wrapper').removeClass('current');
     $('.review-container').hide();
       $(this).addClass('current');
-      $(this).children('.review-container').show(); 
+      $(this).children('.review-container').show();
   })
 
-  var firstReviewWrap = $('div.review-wrapper:first-of-type');
-  var lastReviewWrap = $('div.review-wrapper:last-of-type');
+  var firstReviewWrap = $('article.review-wrapper:first-of-type');
+  var lastReviewWrap = $('article.review-wrapper:last-of-type');
   var currentListing = $('.current');
 
   $(document).ready(function() {
@@ -199,12 +199,12 @@ var reviewToggle = function() {
           currentListing.children('.review-container').toggle();
           if(prevListing.length > 0) {
           prevListing.addClass('current');
-          $('.current').children('.review-container').toggle();  
+          $('.current').children('.review-container').toggle();
           } else {
             prevListing = lastReviewWrap;
             prevListing.addClass('current');
             $('.current').children('.review-container').toggle();
-          } 
+          }
         }
   });
 };
